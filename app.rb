@@ -8,6 +8,7 @@ get("/") do
 
   response = HTTP.get(all_currencies_url).to_s
   @data = JSON.parse(response)
+  @all_currencies = @data.fetch("currencies").keys()
 
   erb(:home)
 end
